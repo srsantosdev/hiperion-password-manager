@@ -24,10 +24,19 @@ const UserService = {
   },
   update: async (data, id) => {
     try {
-      const user = await connection("users")
-        .where("id", id)
-        .update({ ...data });
+      if (data.password) {
+        await connection("users")
+          .where("id", id)
+          .update({ ...data, password: await bcrypt.hash(data.password, 10) });
+      } else {
+        await connection("users")
+          .where("id", id)
+          .update({ ...data });
+      }
 
+      const [user] = await connection("users")
+        .where("id", id)
+        .select(["id", "username", "email", "phone"]);
       return user;
     } catch (err) {
       console.log("erro", err);
@@ -43,6 +52,16 @@ const UserService = {
         "email"
       ]);
       return users;
+    } catch (err) {
+      throw err;
+    }
+  },
+  delete: async id => {
+    try {
+      await connection("users")
+        .where("id", id)
+        .delete();
+      return true;
     } catch (err) {
       throw err;
     }

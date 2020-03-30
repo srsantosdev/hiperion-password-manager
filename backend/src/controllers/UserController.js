@@ -26,5 +26,16 @@ module.exports = {
     } catch (err) {
       return res.status(400).send({ error: "Erro ao listar os usuários." });
     }
+  },
+
+  async delete(req, res) {
+    try {
+      if (await UserService.delete(req.params.id)) {
+        return res.status(204);
+      }
+      throw new Error("Erro ao deletar o usuário.");
+    } catch (err) {
+      return res.status(400).send({ error: "Erro ao deletar o usuário." });
+    }
   }
 };
