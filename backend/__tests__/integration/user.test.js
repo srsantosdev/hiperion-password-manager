@@ -31,15 +31,17 @@ describe("Users", () => {
     const response = await request(app).get("/user");
 
     expect(response.status).toBe(200);
+    expect(response.body).toBeInstanceOf(Array);
   });
 
-  it("should be able to delete a user", async () => {
+  it("should be able to update a user", async () => {
     const response = await request(app)
-      .post("/user/update/1")
+      .put("/user/update/1")
       .send({
         username: "srsantos"
       });
-
+    console.log(response.body);
     expect(response.status).toBe(200);
+    expect(response.body).toHaveProperty("user");
   });
 });
