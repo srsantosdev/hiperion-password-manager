@@ -1,0 +1,142 @@
+import styled from "styled-components";
+
+export const Page = styled.div`
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const Container = styled.div`
+  width: 50%;
+  height: 100vh;
+  padding: 0 96px;
+`;
+
+export const Header = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 70px;
+`;
+
+export const Logo = styled.img``;
+
+export const ContainerLinks = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 30%;
+`;
+
+export const LabelLogin = styled.button`
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  background-color: transparent;
+  color: #363062;
+`;
+
+export const LinkRegister = styled.button`
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  border: none;
+  background-color: transparent;
+  color: #000;
+`;
+
+export const ContainerForm = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 115px;
+`;
+
+export const Title = styled.h1`
+  font-family: Roboto;
+  font-weight: normal;
+  font-size: 32px;
+  line-height: 37px;
+
+  color: #19171b;
+`;
+
+export const Description = styled.p`
+  font-family: Roboto;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 19px;
+  margin-top: 10px;
+  color: #9c9a9a;
+`;
+
+export const Form = styled.form``;
+
+export const Input = styled.input`
+  border: none;
+  width: 456px;
+  background-color: transparent;
+  border-bottom: 1px solid #999696;
+  font-family: Roboto;
+  font-weight: 300;
+  font-size: 16px;
+  color: #363062;
+  margin-top: 30px;
+  padding: 10px;
+  transition: 0.3s;
+  ::placeholder {
+    color: #999696;
+  }
+  &:focus {
+    border-bottom: 2px solid #363062;
+  }
+`;
+
+export const ButtonSubmit = styled.button`
+  width: 454px;
+  height: 56px;
+  background: #363062;
+  font-family: Roboto;
+  border: none;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-top: 60px;
+  margin-bottom: 30px;
+  transition: filter 0.3s;
+  &:hover {
+    filter: brightness(90%);
+  }
+`;
+
+export const ForgotPassword = styled.button`
+  width: 454px;
+  border: none;
+  background-color: transparent;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  color: #363062;
+  transition: filter 0.3s;
+  &:hover {
+    filter: brightness(70%);
+  }
+`;
+
+export const ContainerIllustration = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #363062;
+  width: 50%;
+  height: 100vh;
+`;
+
+export const Illustration = styled.img``;

@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
+    outline: 0;
     box-sizing: border-box;
   }
 
@@ -13,6 +14,10 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     background-color: #F3F2F8;
+  }
+
+  button {
+    cursor: pointer;
   }
 `;
 
