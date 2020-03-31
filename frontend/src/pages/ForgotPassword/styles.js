@@ -32,12 +32,15 @@ export const LinkBack = styled.button`
   font-weight: normal;
   font-size: 18px;
   line-height: 21px;
-
   text-transform: uppercase;
   display: flex;
   flex-direction: row;
   align-items: center;
   color: #363062;
+  transition: opacity .3s;
+  &:hover{
+    opacity: 0.7
+  }
 `;
 
 export const Title = styled.h1`
