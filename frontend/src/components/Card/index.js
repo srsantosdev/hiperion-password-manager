@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import {
   Container,
   ContainerProperties,
@@ -13,8 +12,14 @@ import {
 } from "./styles";
 
 import { FiTrash2, FiEye, FiEyeOff } from "react-icons/fi";
+import api from "./../../services/api";
 
-export default function Card({ id, password = "", description = "" }) {
+export default function Card({
+  id,
+  password = "",
+  description = "",
+  handleDelete
+}) {
   const [visible, setVisible] = useState(false);
 
   return (
@@ -32,7 +37,7 @@ export default function Card({ id, password = "", description = "" }) {
         </Span>
       </ContainerProperties>
       <ContainerActions>
-        <DeleteButton>
+        <DeleteButton onClick={handleDelete}>
           <FiTrash2 size={20} color="#AF2222" />
         </DeleteButton>
         <ViewPassword onClick={() => setVisible(!visible)}>

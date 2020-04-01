@@ -23,11 +23,11 @@ module.exports = {
   },
   delete: async (id, user_id) => {
     try {
-      const password_user_id = await connection("passwords")
+      const [password] = await connection("passwords")
         .where("id", id)
         .select("user_id");
 
-      if (password_user_id !== user_id) {
+      if (Number(password.user_id) !== Number(user_id)) {
         return false;
       }
 

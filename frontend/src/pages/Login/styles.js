@@ -99,6 +99,7 @@ export const ButtonSubmit = styled.button`
 `;
 
 export const ForgotPassword = styled.a`
+  cursor: pointer;
   text-align: center;
   border: none;
   background-color: transparent;

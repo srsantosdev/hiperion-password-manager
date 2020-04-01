@@ -38,16 +38,14 @@ module.exports = {
 
       if (authorization) {
         if (await PasswordService.delete(req.params.id, user_id)) {
-          return res.status(204);
-        } else {
-          res.status(401).send({
-            error: "Sem autorização para deletar esta senha."
-          });
+          return res.status(204).send();
         }
+        throw new Error('Falha ao deletar')
+      }else{
+        return res
+          .status(401)
+          .send({ error: "Esta operação necessita de autenticação." });
       }
-      return res
-        .status(401)
-        .send({ error: "Esta operação necessita de autenticação." });
     } catch (err) {
       return res.status(400).send({
         error: "Erro ao deletar senha."
