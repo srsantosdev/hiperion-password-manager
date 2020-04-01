@@ -10,6 +10,7 @@ import {
   Title,
   ContainerPasswords
 } from "./styles";
+// @ts-ignore
 import { store } from "react-notifications-component";
 import { FiPower } from "react-icons/fi";
 import Card from "./../../components/Card";

@@ -12,7 +12,6 @@ import {
 } from "./styles";
 
 import { FiTrash2, FiEye, FiEyeOff } from "react-icons/fi";
-import api from "./../../services/api";
 
 export default function Card({
   id,
