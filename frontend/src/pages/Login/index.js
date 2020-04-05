@@ -20,7 +20,7 @@ import {
   ButtonSubmit,
   ForgotPassword,
   ContainerIllustration,
-  Illustration
+  Illustration,
 } from "./styles";
 
 import Input from "./../../components/Input";
@@ -35,18 +35,18 @@ const optionsNotification = {
   animationOut: ["animated", "fadeOut"],
   dismiss: {
     duration: 2000,
-    showIcon: true
-  }
+    showIcon: true,
+  },
 };
 
 export default function Login() {
   const history = useHistory();
   const [credentials, setCredentials] = useState({
     username: "",
-    password: ""
+    password: "",
   });
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     try {
       e.preventDefault();
       if (!credentials.username || !credentials.password) {
@@ -54,10 +54,19 @@ export default function Login() {
           title: "Atenção!",
           message: "É necessário informar suas credenciais.",
           type: "warning",
-          ...optionsNotification
+          ...optionsNotification,
         });
       } else {
         const response = await api.post("session", credentials);
+        
+        if(response.status && response.data.error){
+          store.addNotification({
+            title: "Erro de autenticação",
+            message: response.data.error,
+            type: "warning",
+            ...optionsNotification,
+          });
+        }
         if (response.status === 200 && response.data.token) {
           localStorage.setItem("username", response.data.username);
           localStorage.setItem("user_id", response.data.id);
@@ -69,7 +78,7 @@ export default function Login() {
             title: "Erro de autenticação",
             message: "Usuário e/ou senha invalidos!",
             type: "warning",
-            ...optionsNotification
+            ...optionsNotification,
           });
         }
       }
@@ -78,7 +87,7 @@ export default function Login() {
         title: "Error!",
         message: "Erro ao fazer login, tente novamente mais tarde.",
         type: "danger",
-        ...optionsNotification
+        ...optionsNotification,
       });
     }
   };
@@ -106,7 +115,7 @@ export default function Login() {
               placeholder="Usuário"
               icon={FiUser}
               value={credentials.username}
-              onChange={e =>
+              onChange={(e) =>
                 setCredentials({ ...credentials, username: e.target.value })
               }
             />
@@ -115,7 +124,7 @@ export default function Login() {
               type="password"
               icon={FiLock}
               value={credentials.password}
-              onChange={e =>
+              onChange={(e) =>
                 setCredentials({ ...credentials, password: e.target.value })
               }
             />

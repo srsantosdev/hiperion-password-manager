@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from 'react-router-dom'
 
 import {
   Page,
@@ -18,11 +19,15 @@ import { FiMail, FiUser, FiArrowLeft } from "react-icons/fi";
 import logo from "./../../assets/logo.svg";
 
 export default function ForgotPassword() {
+  const history = useHistory()
+
   return (
     <Page>
       <Header>
         <Logo src={logo} />
-        <LinkBack>
+        <LinkBack onClick={() => {
+          history.push('/login')
+        }}>
           <FiArrowLeft style={{ marginRight: 20 }} size={20} />
           Voltar ao login
         </LinkBack>
